@@ -33,10 +33,9 @@ i = 0
 T = []
 rsun = 695700000 #m
 
-#outFile = open("PhotondistancesSunsingle.txt", "w")
-dx, dy, dz = step(31557600)
+
 for photons in range(3):
-     
+    dx, dy, dz = step(31557600)
     while (r < rsun):
         x += dx[i]
         y += dy[i]
@@ -46,18 +45,20 @@ for photons in range(3):
         t = i #in years
     T = np.append(T, t)
     print(t)
-    #outFile.write(str(dx[i]) + " " + str(dy[i]) + " " + str(dz[i]) + " " + str(r) + "\n")
-#outFile.close()
+    
 print(np.average(T)) 
 print(np.std(T))
-#print(t)
+
 #loop around ^ for multiple photons
 
 
 
 # pos = [0.0, 0.0, 0.0]
-# pos = step(pos, 31557600) #array: x, y, z
+# pos = step(pos, 31557600) array: x, y, z
 
+#outFile = open("PhotondistancesSunsingle.txt", "w")
+#outFile.write(str(dx[i]) + " " + str(dy[i]) + " " + str(dz[i]) + " " + str(r) + "\n")
+#outFile.close()
 
 #outFile.write(str(pos[0]) + " " + str(pos[1]) + " " + str(pos[2]) + "\n")
 # print(pos[0], " ", pos[1], " ", pos[2])
