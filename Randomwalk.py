@@ -25,17 +25,19 @@ def step(N): #pos, N, mu, sigma
 #experiment w/ number of steps. Enough steps you're pretty sure
 #dx = normal(0.0, std, 10^8 or other). repeat for dy &dz
 
-x = 0
-y = 0
-z = 0
-r = 0
-i = 0
+
 T = []
 rsun = 695700000 #m
 
+#outFile = open("PhotondistancesSunsingle.txt", "w")
 
-for photons in range(3):
+for photons in range(0, 10):
     dx, dy, dz = step(31557600)
+    x = 0
+    y = 0
+    z = 0
+    r = 0
+    i = 0
     while (r < rsun):
         x += dx[i]
         y += dy[i]
@@ -45,7 +47,8 @@ for photons in range(3):
         t = i #in years
     T = np.append(T, t)
     print(t)
-    
+    #outFile.write(str(dx[i]) + " " + str(dy[i]) + " " + str(dz[i]) + " " + str(r) + "\n")
+#outFile.close()
 print(np.average(T)) 
 print(np.std(T))
 
@@ -54,11 +57,23 @@ print(np.std(T))
 
 
 # pos = [0.0, 0.0, 0.0]
-# pos = step(pos, 31557600) array: x, y, z
+# pos = step(pos, 31557600) #array: x, y, z
 
-#outFile = open("PhotondistancesSunsingle.txt", "w")
-#outFile.write(str(dx[i]) + " " + str(dy[i]) + " " + str(dz[i]) + " " + str(r) + "\n")
-#outFile.close()
 
 #outFile.write(str(pos[0]) + " " + str(pos[1]) + " " + str(pos[2]) + "\n")
 # print(pos[0], " ", pos[1], " ", pos[2])
+
+
+# Multiphoton: 10 photons
+# 1330597
+# 1178044
+# 852438
+# 2515931
+# 1527562
+# 514632
+# 2261340
+# 1297959
+# 677451
+# 2435509
+# 1459146.3 avg
+# 686370.7454389428 std
